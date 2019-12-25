@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Thumbnail(props) {
     const styles = {
-        width: '200px'    
+        width: '200px'     
     };
     return (
        <img 

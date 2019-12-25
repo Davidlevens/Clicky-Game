@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import Thumbnail from "./components/Thumbnail";
+import Score from "./components/Score";
 
 class App extends Component {
 
@@ -26,20 +27,37 @@ class App extends Component {
       "../../assets/img/porsche_PNG10624.png",
       "../../assets/img/subaru_PNG11960.png"
 
-    ]
-  }
+    ],
+    score: 0
+  };
 
+ clickedTiles = [
+
+ ];
   
 
   handleTileClick = (evt) => {
+
+    const clickedTile = evt.target.src;
+
+    if (this.clickedTiles.includes(clickedTile)) {
+      this.setState({score: 0});
+      console.log('ERRRR: already clicked, score: ', this.state.score);
+      return;
+    }
+
+    this.setState({score: this.state.score + 1});
+    this.clickedTiles.push(clickedTile);
+    console.log('score: ', this.state.score)
+
     const shuffled = this.state.tiles.sort(() => 0.5 - Math.random());
     this.setState({ tiles: shuffled });
   }
 
-  // const newShuffle = this.state.tiles.sort(() => 0.5 - Math.random());
   render() {
     return (
       <div className="App">
+        <Score score={this.state.score} topScore={null} />
         {
           this.state.tiles.map((tile, idx) => <Thumbnail
             src={tile} key={idx} onClick={this.handleTileClick}

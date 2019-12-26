@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 
 import Thumbnail from "./components/Thumbnail";
+import Header from "./components/Header";
+import Container from "./components/Container";
+import Footer from "./components/Footer";
 import Score from "./components/Score";
 
 class App extends Component {
@@ -65,14 +68,18 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Score score={this.state.score} topScore={this.state.topScore} />
-        {
-          this.state.tiles.map((tile, idx) => <Thumbnail
-            src={tile} key={idx} onClick={this.handleTileClick}
-          />)
-        }
-
+        <Header score={this.state.score} topScore={this.state.topScore} />
+        
+        <Container>
+          {
+            this.state.tiles.map((tile, idx) => <Thumbnail
+              src={tile} key={idx} onClick={this.handleTileClick}
+            />)
+          }
+        </Container>
+        <Footer />
       </div>
+
     );
   }
 }

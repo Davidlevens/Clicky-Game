@@ -31,7 +31,8 @@ class App extends Component {
       "../../assets/img/subaru_PNG11960.png"
 
     ],
-    score: 0
+    score: 0,
+    topScore: 0
   };
 
   clickedTiles = [

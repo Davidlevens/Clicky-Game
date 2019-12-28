@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 import Thumbnail from "./components/Thumbnail";
 import Header from "./components/Header";
+import Instructions from "./components/Instructions";
 import Container from "./components/Container";
 import Footer from "./components/Footer";
 import Score from "./components/Score";
@@ -32,7 +33,10 @@ class App extends Component {
 
     ],
     score: 0,
-    topScore: 0
+    topScore: 0,
+    message: "Clicky Game!"
+    
+    
   };
 
   clickedTiles = [
@@ -59,10 +63,12 @@ class App extends Component {
     console.log('score: ', this.state.score)
 
     const shuffled = this.state.tiles.sort(() => 0.5 - Math.random());
+    const message = this.state.message;
     this.setState({
       tiles: shuffled,
       score: newScore,
-      topScore: topScore
+      topScore: topScore,
+      message: message
     });
   }
 
@@ -70,7 +76,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header score={this.state.score} topScore={this.state.topScore} />
-        
+        <Instructions message={this.state.message} />
         <Container>
           {
             this.state.tiles.map((tile, idx) => <Thumbnail

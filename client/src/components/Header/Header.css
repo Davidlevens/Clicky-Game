@@ -23,11 +23,11 @@
     display: inline-block;
     width: 33%;
     padding-top: 20px;
-    font-family: 'Chakra Petch', sans-serif;
+    font-family: 'Tahoma', sans-serif;
 }
 
 .title {
-    font-family: 'Lobster', cursive;
+    font-family: 'Tahoma', cursive;
 }
 
 #score {

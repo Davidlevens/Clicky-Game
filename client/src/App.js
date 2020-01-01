@@ -34,7 +34,7 @@ class App extends Component {
     ],
     score: 0,
     topScore: 0,
-    message: "Clicky Game!"
+    message: "Click as many images as you can without repeating"
     
     
   };
